@@ -23,14 +23,14 @@ const data = async () => {
             return {
                 id: poke.data.id,
                 name: poke.data.name,
-                type: poke.data.types.map(t => t.type.name),
+                types: poke.data.types.map(t => t.type),
                 img: poke.data.sprites.other.dream_world.front_default,
                 attack: poke.data.stats[1].base_stat,
                 defense: poke.data.stats[2].base_stat,
 
             }
         });
-        console.log("PRUEBO QUE EL RESULTADO SEA EL ESPERADO", resultado);
+        //console.log("PRUEBO QUE EL RESULTADO SEA EL ESPERADO", resultado);
     return resultado;
 }
 
@@ -127,7 +127,7 @@ router.get('/:id', async (req, res, next) => {
                pokeId = {
                    id: resDb.id,
                    name: resDb.name,
-                   types: resDb.types.map(t => t.name),   
+                   types: resDb.types.map(t => t.type.name),   
                    image: resDb.image,
                    life: resDb.life,
                    attack: resDb.attack,
@@ -197,7 +197,7 @@ router.get('/', async(req,res)=>{
                 return {
                     id: p.id,
                     name: p.name,
-                    types: p.types.map(t => t.name),
+                    types: p.types.map(t => t.type),
                     image: p.image,
                     life: p.life,
                     attack: p.attack,
@@ -217,7 +217,7 @@ router.get('/', async(req,res)=>{
                 {
                     id: pokeApi.data.id,
                     name: pokeApi.data.name,
-                    types: pokeApi.data.types.map(t => t.type.name),
+                    types: pokeApi.data.types.map(t => t.type),
                     image: pokeApi.data.sprites.other.home.front_default,
                     life: pokeApi.data.stats[0].base_stat,
                     attack: pokeApi.data.stats[1].base_stat,
