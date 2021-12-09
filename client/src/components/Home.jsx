@@ -106,11 +106,11 @@ export default function Home() {
   //-----------------------------------------------------------
   // Lo uso para recargar la pagina
   //-----------------------------------------------------------
-  // function handleClick(e) {
-  //   e.preventDefault();
-  //   dispatch(getPokemons());
-  //   setPage(0);
-  // }
+  function handleClick(e) {
+    e.preventDefault();
+    dispatch(getPokemons());
+    setPage(0);
+  }
 
   //-----------------------------------------------------------
   // Filtro por Api o Creados
@@ -157,7 +157,7 @@ export default function Home() {
           <div className="home-buscar">
             <input
               className="home-input"
-                // id="formulario"
+              // id="formulario"
               value={name}
               type="text"
               placeholder="Buscar pokemon..."
@@ -180,15 +180,23 @@ export default function Home() {
 
           {/*Renderizo la barra de ordenamiento */}
           <div className="home-ordenar">
-          <button  
-            onClick={() => {
-              const mostrarVentana = document.getElementById("home-ventana");
-              mostrarVentana.classList.toggle("home-ventana-visible");
-            }}
-          >
-            Mostrar Filtros
-          </button>
-          </div >
+            {/* Agrego un boton para volver a cargar todos los pokemon */}
+            <button
+              onClick={(e) => {
+                handleClick(e);
+              }}
+            >
+              Recargar Pokemons
+            </button>
+            <button
+              onClick={() => {
+                const mostrarVentana = document.getElementById("home-ventana");
+                mostrarVentana.classList.toggle("home-ventana-visible");
+              }}
+            >
+              Mostrar Filtros
+            </button>
+          </div>
           <div id="home-ventana" className="home-ventana">
             <div className="home-filtros">
               <select
@@ -234,14 +242,6 @@ export default function Home() {
               </select>
             </div>
           </div>
-          {/* Agrego un boton para volver a cargar todos los pokemon */}
-          {/* <button
-            onClick={(e) => {
-              handleClick(e);
-            }}
-          >
-            Recargar Pokemons
-          </button> */}
         </div>
 
         {/* Aqui rendrizo las PokeCards  y le pongo un loading*/}

@@ -14,8 +14,9 @@ export default function Navbar() {
         </Link>
         <div className="navbar-boton-content">
           
-            <Link to="/home" className="navbar-links">
-              <button>Home</button>
+            <Link to="/home" className="navbar-links" >
+              <button >
+                Home</button>
             </Link>
 
             <Link to="/create" className="navbar-links">
