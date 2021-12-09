@@ -1,0 +1,120 @@
+.home-father-container {
+  /* display: flex;
+  flex-direction: column; */
+  
+  align-items: center;
+  justify-content: center;
+  /* width: 100%; */
+  height: 100%;
+  margin-top: 40px;
+}
+
+.home-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 50px;
+    /* display: flex; */
+    justify-content: center;
+    flex-direction: row;
+    background-color: hsla(51, 28%, 95%, 0.61);
+    padding: 5px;
+    width: 100%;
+    align-items: center;
+}
+
+.home-buscar {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  /* margin-bottom: 5px; */
+  }
+
+  .home-input {
+    margin-left: 5px;
+    width: 50%;
+    height: 25px;
+    border-radius: 5px;
+    }
+
+
+    .home-filtros{
+      display: flex;
+      flex-direction: row;
+      left: 75%;
+      position: absolute;
+      z-index: 150;
+      background-color: #f5f4ee;
+      box-shadow: 10px 10px 4px #111;
+      top: 170px;
+    }
+    .home-ventana{
+      display: none;
+    }
+    .home-ventana-visible{
+      display: block;
+    }
+
+    .home-ordenar{
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+      align-items: center;
+      width: 70%;
+      left: 200px;
+     
+      }
+
+      .home-ordenar button{
+        width: 200px;
+        
+      }
+
+      .home-ordenar-select{
+        margin-left: 10px;
+        width: 60%;
+        height: 30px;
+        border-radius: 5px;
+        }
+
+
+
+
+    .home-buscar-button {
+      background-color: rgb(118, 160, 233);
+      border: 1px solid #545455;
+      border-radius: 4px;
+      padding: 5px;
+      margin: 5px;
+      width: 200px;
+      height: 30px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #545455;
+      transition: .5s;  
+      margin-right: 10px;
+    }
+
+    .home-container button {
+      background-color: rgb(118, 160, 233);
+      border: 1px solid #545455;
+      border-radius: 4px;
+      padding: 5px;
+      margin: 5px;      
+      height: 30px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #fcfcfc;
+      
+      transition: .5s;  
+      margin-right: 10px;
+    }
+    
+    .home-container button:hover {
+      background-color: #545455;
+      color: #f5f4ee;
+      cursor: pointer;
+    }
+    

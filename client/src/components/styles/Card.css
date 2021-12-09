@@ -2,41 +2,122 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  width: 80%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   margin-top: 20px;
+  border-radius: 4px;
+  /* background: grey */
+  /* text-align: center; */
+  
+  
+ 
+}
+
+.card-block
+ {
+  height: 90%;
+  max-height: 500px;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f5f4ee;
+  box-shadow: 10px 10px 4px #111;
+  border: 3px solid #545455;
+  /* background: radial-gradient(black 33%, transparent 33%);
+    background-size: 3px 3px; */
+  margin-bottom: 20px !important;
+  transition: .5s;
+ text-align: center;
+
+
+}
+
+.card-image-container {
+  padding: 15px;
+  /* height: 70%; */
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 10px auto;
+  /* background: radial-gradient(black 33%, transparent 33%); */
+  background: radial-gradient(#648acc 33%, transparent 33%);
+  background-size: 3px 3px;
+  border-radius: 50%;
   
 }
 
-.card-block,
-.back {
-  height: 90%;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: #F3ED9E;
-  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-}
 
-/* .img-container {
-    background-image: url("./blob.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-  } */
+.card-image-detail {
+  margin-top: 20px;
+  width: 180px;
+  
+}
 
 .card-block p {
   margin: 5px;
 }
 
 
-/* .name {
+.card-title {
+  margin-bottom: 10px;
   text-transform: capitalize;
-  font-weight: bold;
-  font-size: 1.2rem;
-} */
+  text-shadow: 10px 10px 400px rgba(0, 0, 0, 0.7);
+}
 
 .Link {
   text-decoration: none;
   color: black;
+}
+
+/* .card-poke-type {
+  height: 20px;
+  border-radius: 4px;
+  border: 1px dashed black;
+} */
+
+.card-poke-h5 {
+  height: 20px;
+  border-radius: 4px;
+  border: 1px dashed black;
+  text-transform: capitalize;
+  text-shadow: 10px 10px 400px rgba(0, 0, 0, 0.7);
+}
+
+.card-block:hover {
+  box-shadow: 16px 16px 4px #111;
+  border: 3px solid #545455;
+  background-color: #f5f4ee;
+}
+
+/* botones de pagincacion */
+.paging-container {
+  margin-top: 20px;
+  background-color: rgba(246, 245, 239, 0.658);
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.paging-container button {
+  /* background-color: #f5f4ee; */
+  background-color: rgb(118, 160, 233);
+  border: 1px solid #545455;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  /* color: #545455; */
+  color: #fcfcfc;
+  transition: .5s;  
+}
+
+.paging-container button:hover {
+  background-color: #545455;
+  color: #f5f4ee;
+  cursor: pointer;
 }

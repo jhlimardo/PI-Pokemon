@@ -1,0 +1,147 @@
+.form-container {
+  background: #f5f4ee ;
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 0 20px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 4px #111;
+  border: 3px solid #545455;
+ 
+}
+.from-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-group {
+    display:flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.col-md-6 offset-md-3 {
+    margin-bottom: 10px;
+}
+
+.form-text-center {
+    text-align: center;
+}
+
+.form-name {
+    /* margin-bottom: 20px;
+    margin-right: 20px; */
+    flex: 0 0 100px;
+    text-align: left;
+
+}
+
+.form-control {
+    /* border-radius: 0; */
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    color: rgb(248, 100, 46);
+    margin: 0;
+
+    border: 1px solid #e5e5e5;
+}
+
+/* .form-btn {
+    border-radius: 4;
+    margin-top: 20px;
+
+} */
+
+.form-btn-primary {
+    background-color: rgb(118, 160, 233);
+    border: none;
+    color: #fff;
+    padding: 12px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4;
+}
+
+.form-btn-block {
+    width: 100%;
+}
+
+.form-btn:hover {
+    background-color: #545455;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.form-alert {
+    border: 1px solid #2ecc71;
+    border-radius: 0;
+    color: #2ecc71;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+} 
+.form-alert-danger {
+    border: 1px solid #e74c3c;
+    border-radius: 0;
+    color: #e74c3c;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+}
+
+.form-btn {
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.form-btn-secondary {
+    background-color: rgb(118, 160, 233);
+    border: none;
+    color: #fff;
+    padding: 12px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4;
+}
+.form-btn-block {
+    width: 100%;
+
+}
+
+
+.form-checkbox-container{
+    display: block;
+
+
+    background: rgba(128, 128, 128, 0.178) ;
+    
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto; ;
+    padding: 10px;
+    margin-bottom: 10px;
+   
+}
+
+.from-checkbox-grid {
+    /* margin-right: 20px;
+    margin-bottom: 20px; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+
+
+}
+
+.from-checkbox{
+    display: flex;
+    justify-content: space-between;
+   
+
+}

@@ -7,14 +7,18 @@ export default function Card({image, name, type}) {
   return (
    
       <div className="card-block">
-        <h2>{name}</h2>
-        <img src={image} alt={name} width="200px" height="250px" />
-        {Array.isArray(type) ?
-            type.map(tipo => (
-            <h4 className="pokemon_tipo">{tipo.name}</h4>)): 
-            type ? (<h4 className="pokemon_tipo">{type}</h4>) : (<h4 className="pokemon_tipo"> Sin Tipo</h4>)
-        }
-      </div> 
+        <h3 className="card-title">{name}</h3>
+          <div className="card-image-container">
+            <img className="card-image-detail" src={`${image}`} alt={name} width="100px" height="125px" />
+          </div>
+            {Array.isArray(type) ?
+              type.map(t => (
+                <div className="card-poke-type">
+              <h5 className="card-poke-h5">{t.name}</h5></div>)
+              ): 
+              type ? (<h5 className="card-poke-h5">{type}</h5>) : (<h5 className="card-poke-h5"> Sin Tipo</h5>)
+          }
+          </div> 
     
   );
 }

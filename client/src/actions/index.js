@@ -1,87 +1,131 @@
-import axios from 'axios';
+import axios from "axios";
 
 
-
-// Traigo todos los Pokemons
-// export function getPokemons(){
-//     return async function(dispatch){
-//         var json = (await axios.get(`http://localhost:3001/pokemons`));        
-//         return dispatch({
-//             type: "GET_POKEMONS",
-//             payload: json.data,
-//         });
-//     };
-// }
-
-export function getPokemons(){
-        return function(dispatch){
-            dispatch({  type: "LOADING", payload: 'Buscando Pokemons...' });
-            return axios.get(`http://localhost:3001/pokemons`)
-            .then (res => res.data)
-            .then (data => {
-                dispatch({ type: "GET_POKEMONS", payload: data });
-                
-            });
-        };
-    }
+// Traigo todos los pokemons
+export function getPokemons() {
+  return async function (dispatch) {
+    console.log("Estoy Loading");
+    dispatch({ type: "LOADING", payload: "Buscando Pokemons..." });
+    const json = await axios.get(`http://localhost:3001/pokemons`);
+    console.log(json.data);
+    const res = json.data;
+    console.log("desde actions", res);
+    return dispatch({
+      type: "GET_POKEMONS",
+      payload: res,
+    });
+  };
+}
 
 // Traigo los tipos
-export function getPokeTypes () {
-    return async (dispatch) => {
-        var json = (await axios.get(`http://localhost:3001/types`));   
-        return dispatch({
-            type: "GET_POKE_TYPES",
-            payload: json.data,
+export function getPokeTypes() {
+  return async (dispatch) => {
+    var json = await axios.get(`http://localhost:3001/types`);
+    return dispatch({
+      type: "GET_POKE_TYPES",
+      payload: json.data,
     });
   };
 }
 
-export function getByName (name) {
-    return async (dispatch) => {
-            name = name.toLowerCase();
-            var json = (await axios.get(`http://localhost:3001/pokemons?name=${name}`));  
-        return dispatch({
-            type: "GET_BY_NAME",
-            payload: json.data,
-    });
+//Traigo los pokemons con un determinado nombre -> exacto
+export function getByName(name) {
+  return async (dispatch) => {
+    try {
+      var json = await axios.get(`http://localhost:3001/pokemons?name=${name}`);
+      return dispatch({
+        type: "GET_BY_NAME",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
-export function pokeFilter (num) {
-    return async (dispatch) => {
-        var json = (await axios.get(`http://localhost:3001/pokemons?number=${num}`));  
-        return dispatch({
-            type: "POKE_FILTER",
-            payload: json.data,
-    });
+// Traigo un pokemon segun su ID y lo muestro en detalles
+export function getById(id) {
+  return async (dispatch) => {
+    try {
+      var json = await axios.get(`http://localhost:3001/pokemons/${id}`);
+      //console.log("Desde Actions", json.data);
+      return dispatch({
+        type: "GET_BY_ID",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
-export function type (type) {
-    return (dispatch) => {
-        return dispatch({
-            type: "TYPE",
-            payload: type,
-    });
-  }
-}
-     
-
-export function ordenar (order) {
-    return (dispatch) => {
-        return dispatch({
-            type: "ORDENAR",
-            payload: order,
-    });
+// Filtro segun el Tipo
+export function getByType(payload) {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: "GET_BY_TYPE",
+        payload,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
-export function add (pokemon) {
-    return (dispatch) => {
-        return dispatch({
-            type: "ADD",
-            payload: pokemon,
-    });
+// Ordeno ascendente o descendente
+export function ordenar(order) {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: "ORDENAR",
+        payload: order,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
+}
 
+// Filtrar por ataque
+export function orderAttack(orderAttack) {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: "ORDENAR_ATTACK",
+        payload: orderAttack,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+// Agregar un pokemon a la DB
+export function addPokemon(payload) {
+  return async (dispatch) => {
+    try {
+      var json = await axios.post(`http://localhost:3001/pokemons`, payload);
+      return dispatch({
+        type: "ADD_POKEMON",
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+// Filtrar segun sean de la API o de la DB
+export function dbOrApi(payload) {
+  return async function (dispatch) {
+    try {
+      return dispatch({
+        type: "DB_OR_API",
+        payload,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }

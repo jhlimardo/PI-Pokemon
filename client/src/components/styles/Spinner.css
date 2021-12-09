@@ -1,3 +1,16 @@
+
+
+.spinner-padre {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  justify-content: center;
+  align-items: center;
+  /* height: 300px;
+  width: 1200px; */
+}
+
 .lds-dual-ring {
     display: inline-block;
     width: 80px;
@@ -10,8 +23,8 @@
     height: 64px;
     margin: 8px;
     border-radius: 50%;
-    border: 6px solid black;
-    border-color: black transparent black transparent;
+    border: 10px solid black;
+    border-color: yellow blue black red;
     animation: lds-dual-ring 1.2s linear infinite;
   }
   @keyframes lds-dual-ring {

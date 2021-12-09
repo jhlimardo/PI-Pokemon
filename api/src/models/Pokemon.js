@@ -1,4 +1,5 @@
 const { DataTypes } = require('sequelize');
+//import imagen from '../../../client/src/components/img/pikachu.png';
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
@@ -10,10 +11,6 @@ module.exports = (sequelize) => {
       primaryKey: true,
       allowNull: false,
     },
-    // idPoke: {
-    //   type: DataTypes.INTEGER,
-    //   autoIncrement: true,
-    // },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -39,7 +36,8 @@ module.exports = (sequelize) => {
     img:{
        type: DataTypes.STRING,
        allowNull:false,
-       defaultValue: 'https://okdiario.com/img/series/2016/11/05/pokemon.jpg',
+       //defaultValue: 'https://okdiario.com/img/series/2016/11/05/pokemon.jpg',
+      defaultValue: 'https://w7.pngwing.com/pngs/855/341/png-transparent-pokemon-pikachu-pikachu-pokemon-x-and-y-pokemon-go-pokemon-ruby-and-sapphire-ash-ketchum-pokemon-dog-like-mammal-cartoon-snout-thumbnail.png',
     },
     createdInDb: { // Campo para saber si el pokemon fue creado en la base de datos o no
       type: DataTypes.BOOLEAN,

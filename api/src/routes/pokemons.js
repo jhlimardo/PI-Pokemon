@@ -51,13 +51,15 @@ const data = async () => {
 //-------------------------------------------------------------------------------------------------------
 // POST -> Carga de nuevos pokemons a la DB
 //-------------------------------------------------------------------------------------------------------
+
+
 router.post('/', async (req, res, next) => {
     try {
         // obtengo los datos del pokemon que me pasan por body con destructuring
-        const {name, life, attack, defense, speed, height, weight, img, type} = req.body; 
-        // creo el pokemon con los datos que me pasan por body
+        const {name, life, attack, defense, speed, height, weight, img, type} = req.body;
+
         const newPokemon = await Pokemon.create({ 
-            name,
+            name: name.toLowerCase(),
             life,
             attack,
             defense,
@@ -66,9 +68,12 @@ router.post('/', async (req, res, next) => {
             weight,
             img,
         })
+        // creo el pokemon_type con los datos que me pasan por body
+        await newPokemon.setTypes(type);
         res.status(201).send(newPokemon)
+
     } catch (error) {
-        next(error)
+        res.send(error.message);
     }
     
 }); 
@@ -127,8 +132,8 @@ router.get('/:id', async (req, res, next) => {
                pokeId = {
                    id: resDb.id,
                    name: resDb.name,
-                   types: resDb.types.map(t => t.type.name),   
-                   image: resDb.image,
+                   types: resDb.types.map(t => t),   
+                   img: resDb.img,
                    life: resDb.life,
                    attack: resDb.attack,
                    defense: resDb.defense,
@@ -153,8 +158,8 @@ router.get('/:id', async (req, res, next) => {
                 pokeId = {
                     id: resPoke.data.id,
                     name: resPoke.data.name,
-                    types: resPoke.data.types.map(t => t.type.name),
-                    image: resPoke.data.sprites.other.home.front_default,
+                    types: resPoke.data.types.map(t => t.type),
+                    img: resPoke.data.sprites.other.dream_world.front_default,
                     life: resPoke.data.stats[0].base_stat,
                     attack: resPoke.data.stats[1].base_stat,
                     defense: resPoke.data.stats[2].base_stat,
@@ -197,8 +202,8 @@ router.get('/', async(req,res)=>{
                 return {
                     id: p.id,
                     name: p.name,
-                    types: p.types.map(t => t.type),
-                    image: p.image,
+                    types: p.types.map(t => t),
+                    img: p.img,
                     life: p.life,
                     attack: p.attack,
                     defense: p.defense,
@@ -218,7 +223,7 @@ router.get('/', async(req,res)=>{
                     id: pokeApi.data.id,
                     name: pokeApi.data.name,
                     types: pokeApi.data.types.map(t => t.type),
-                    image: pokeApi.data.sprites.other.home.front_default,
+                    img: pokeApi.data.sprites.other.dream_world.front_default,
                     life: pokeApi.data.stats[0].base_stat,
                     attack: pokeApi.data.stats[1].base_stat,
                     defense: pokeApi.data.stats[2].base_stat,
