@@ -10,7 +10,7 @@
 
 ## Objetivos del Proyecto
 
-- Construir una App utlizando React, Redux, Node y Sequelize -> https://pi-pokemon-snowy.vercel.app/.
+- Construir una App utlizando React, Redux, Node y Sequelize -> Done: https://pi-pokemon-snowy.vercel.app/.
 - Afirmar y conectar los conceptos aprendidos en la carrera.
 - Aprender mejores prácticas.
 - Aprender y practicar el workflow de GIT.
