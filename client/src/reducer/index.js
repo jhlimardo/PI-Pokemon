@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 const initialState = {
     pokemons: [],
     allPokemon: [],
@@ -30,23 +31,17 @@ function rootReducer (state=initialState, action) {
             };
 
             case "GET_BY_TYPE":
-              //console.log('REDUCER BY TYPE', action.payload)
-              const allPoke = state.pokemons;
-              //console.log(allPoke)
+              const allPoke = state.allPokemon;
               const filteredByTypes =
-                // eslint-disable-next-line array-callback-return
                 allPoke.filter((poke) => poke.types.find(t => {
-                    if (t.name === action.payload) {
-                      //console.log(poke, '2')
-                      return poke
-                    } 
-                }));
-                //console.log(filteredByTypes, '3')  
+                  if (t.name === action.payload) {                     
+                    return poke
+                  } 
+                }));               
                 return {
                   ...state,
-                  pokemons: filteredByTypes,
-        
-        };
+                  pokemons: filteredByTypes,          
+                };
 
             case 'GET_BY_NAME':
               //console.log('REDUCER POR NOMBRE', action.payload)
@@ -102,6 +97,8 @@ function rootReducer (state=initialState, action) {
                 
             case 'ORDENAR_ATTACK':
                 let orderAttack;
+                // const allPoke2 = state.allPokemon;
+                
                 if (action.payload === "att-asc") {
                   orderAttack = state.pokemons.sort(function (a, b) {
                     if (a.attack > b.attack) {
@@ -125,7 +122,8 @@ function rootReducer (state=initialState, action) {
                     return 0;
                   });
                 }
-                return { ...state, pokemons: orderAttack
+                return { ...state, 
+                  pokemons: orderAttack,
             };
             
             case "DB_OR_API":

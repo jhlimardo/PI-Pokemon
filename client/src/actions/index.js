@@ -6,10 +6,10 @@ export function getPokemons() {
   return async function (dispatch) {
     console.log("Estoy Loading");
     dispatch({ type: "LOADING", payload: "Buscando Pokemons..." });
-    const json = await axios.get(`http://localhost:3001/pokemons`);
-    console.log(json.data);
+    const json = await axios.get(`/pokemons`);
+    // console.log(json.data);
     const res = json.data;
-    console.log("desde actions", res);
+    // console.log("desde actions", res);
     return dispatch({
       type: "GET_POKEMONS",
       payload: res,
@@ -20,7 +20,7 @@ export function getPokemons() {
 // Traigo los tipos
 export function getPokeTypes() {
   return async (dispatch) => {
-    var json = await axios.get(`http://localhost:3001/types`);
+    var json = await axios.get(`/types`);
     return dispatch({
       type: "GET_POKE_TYPES",
       payload: json.data,
@@ -32,12 +32,13 @@ export function getPokeTypes() {
 export function getByName(name) {
   return async (dispatch) => {
     try {
-      var json = await axios.get(`http://localhost:3001/pokemons?name=${name}`);
+      var json = await axios.get(`/pokemons?name=${name}`);
       return dispatch({
         type: "GET_BY_NAME",
         payload: json.data,
       });
     } catch (error) {
+      alert("Pokemon No Encontrado");
       console.log(error);
     }
   };
@@ -47,7 +48,7 @@ export function getByName(name) {
 export function getById(id) {
   return async (dispatch) => {
     try {
-      var json = await axios.get(`http://localhost:3001/pokemons/${id}`);
+      var json = await axios.get(`/pokemons/${id}`);
       //console.log("Desde Actions", json.data);
       return dispatch({
         type: "GET_BY_ID",
@@ -105,7 +106,7 @@ export function orderAttack(orderAttack) {
 export function addPokemon(payload) {
   return async (dispatch) => {
     try {
-      var json = await axios.post(`http://localhost:3001/pokemons`, payload);
+      var json = await axios.post(`/pokemons`, payload);
       return dispatch({
         type: "ADD_POKEMON",
         payload: json,

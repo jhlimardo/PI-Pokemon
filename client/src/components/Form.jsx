@@ -51,9 +51,9 @@ export default function Form() {
     e.preventDefault();
     // console.log(pokemon);
     if (pokemon.name === '' || pokemon.type === [] ||
-      pokemon.life === 0 || pokemon.attack === 0 ||
-      pokemon.defense === 0 || pokemon.speed === 0 ||
-      pokemon.height === 0 || pokemon.weight === 0) {
+      pokemon.life <= 0 || pokemon.attack <= 0 ||
+      pokemon.defense <= 0 || pokemon.speed <= 0 ||
+      pokemon.height <= 0 || pokemon.weight <= 0) {
       setError(true)
       return 
     }
@@ -132,6 +132,7 @@ function eliminarSeleccion(array, sel){
                   className="form-control"
                   id="name"
                   name="name"
+                  
                   value={pokemon.name}
                   onChange={e => {handleChange(e)}}
                 />
@@ -171,6 +172,7 @@ function eliminarSeleccion(array, sel){
                   id="life"
                   name="life"
                   value={pokemon.life}
+                  
                   onChange={e => {handleChange(e)}}
                 />
               </div>
@@ -183,6 +185,7 @@ function eliminarSeleccion(array, sel){
                   id="attack"
                   name="attack"
                   value={pokemon.attack}
+                  
                   onChange={e => {handleChange(e)}}
                 />
               </div>
@@ -195,6 +198,7 @@ function eliminarSeleccion(array, sel){
                   id="defense"
                   name="defense"
                   value={pokemon.defense}
+                  
                   onChange={e => {handleChange(e)}}
                 />
               </div>
@@ -207,6 +211,7 @@ function eliminarSeleccion(array, sel){
                   id="speed"
                   name="speed"
                   value={pokemon.speed}
+                  
                   onChange={e => {handleChange(e)}}
                 />
               </div>
@@ -219,6 +224,7 @@ function eliminarSeleccion(array, sel){
                   id="height"
                   name="height"
                   value={pokemon.height}
+                  
                   onChange={e => {handleChange(e)}}
                 />
               </div>
@@ -231,6 +237,7 @@ function eliminarSeleccion(array, sel){
                   id="weight"
                   name="weight"
                   value={pokemon.weight}
+                  
                   onChange={e => {handleChange(e)}}
                 />
               </div>

@@ -8,8 +8,8 @@ const {v4: uuidv4} = require('uuid');
 // Función para traer todos los pokemons desde la API
 //-------------------------------------------------------------------------------------------------------
 const data = async () => {
-    // Declaro un array donde coloco el listado los primeros 40 pokemons desde la api (Solo trae el nombre y la url)
-    //let apiArray = (await axios.get('https://pokeapi.co/api/v2/pokemon/')).data.results;
+    // Declaro un array donde coloco el listado los primeros 40 pokemons desde la api 
+    
     let apiArray = (await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=40')).data.results;
     //console.log("Pruebo si me trae la API:", apiArray);
     let newApiArray = [];
@@ -183,7 +183,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.get('/', async(req,res)=>{
    
-    let {name}= req.query;
+    const {name}= req.query;
   
     try{
         

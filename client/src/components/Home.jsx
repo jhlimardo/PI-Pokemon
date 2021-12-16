@@ -26,6 +26,7 @@ export default function Home() {
   const loading = useSelector((state) => state.loading);
   const [, setOrder] = useState("");
   const types = useSelector((state) => state.types);
+  
   // console.log("Estos son los tipos:", types);
 
   // -------------------------------------------------------------------------------------------
@@ -81,7 +82,7 @@ export default function Home() {
     e.preventDefault();
     setName(e.target.value.toLowerCase());
     setPage(0);
-    console.log(name);
+   
   }
   //------------------------------------------------------------------------------------
   // Search Bar
@@ -147,6 +148,8 @@ export default function Home() {
     setPage(0);
   }
 
+
+
   return (
     <div>
       {/* <Navbar /> */}
@@ -175,6 +178,7 @@ export default function Home() {
             >
               Buscar
             </button>
+
           </div>
           {/* Fin barra de busqueda */}
 
@@ -204,6 +208,7 @@ export default function Home() {
                   handleOrder(e);
                 }}
               >
+                <option disabled selected>Order By</option>
                 <option value="asc">Ascendente</option>
                 <option value="desc">Descendente</option>
               </select>
@@ -212,6 +217,7 @@ export default function Home() {
                   handleOrderAttack(e);
                 }}
               >
+                <option disabled selected>Attack</option>
                 <option value="att-asc">Weack</option>
                 <option value="att-desc">Strong</option>
               </select>
@@ -220,6 +226,7 @@ export default function Home() {
                   handledbOrApi(e);
                 }}
               >
+                <option disabled selected>Created/Exist</option>
                 <option value="all">Todos</option>
                 <option value="created">Creados</option>
                 <option value="api">Existentes</option>
@@ -230,7 +237,7 @@ export default function Home() {
                   handleTypes(e);
                 }}
               >
-                <option>Tipos</option>
+                <option value="all">By Type</option>
                 {types &&
                   types.map((type, index) => {
                     return (

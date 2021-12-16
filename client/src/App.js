@@ -7,6 +7,8 @@ import React from 'react';
 import NavBar from './components/NavBar';
 import Detalle from './components/Detalle';
 import Form from './components/Form';
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 
