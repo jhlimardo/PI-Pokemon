@@ -1,28 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getById } from "../actions";
+import { useParams, useHistory } from "react-router-dom";
+import { 
+getById,
+deleteById,
+ } from "../actions";
 import "./styles/Detail.css";
 
 export default function Detalle() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [pId,] = useState(id);
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getById(pId));
+    
   }, [dispatch, pId]);
 
   const detail = useSelector((state) => state.pokeDetail);
 
-  //console.log("tipos =", detail.types)
-
-  // useSelector(state => {
-  //     console.log("Estado del Detalle", state);
-  // });
-
-  // console.log("Dettale desde Detalle ID:", productoId);
-
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (pId.length < 6) {
+      alert("Pokemon de la API no se puede elimiar");
+      return;
+      
+    } else {
+      dispatch(deleteById(pId));
+      alert("Pokemon eliminado");
+      
+      history.push('/home');
+    }
+  }
+    
   return (
     <div className="detail-content">
       <div className="detail-titulo">
@@ -32,7 +43,7 @@ export default function Detalle() {
 
       <div className="detail-block">
         <div className="detail-block-img">
-          <img src={detail.img} alt="" width="400px" height="400px" />
+          <img src={detail.img} alt="" width="250px" height="250px" />
         </div>
         <div className="detail-block-info">
           <div className="detail-block-tipo">
@@ -75,7 +86,14 @@ export default function Detalle() {
           </div>
         </div>
       </div>
+      
     </div>
+      <div>
+        <div className="detail-btn-container">
+          <button className="detail-btn detail-btn-delete detail-btn-block"
+           onClick={e => {handleSubmit(e)}}>Delete</button>
+        </div>
+      </div>
     </div>
   );
 }

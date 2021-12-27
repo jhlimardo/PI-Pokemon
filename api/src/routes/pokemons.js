@@ -248,6 +248,41 @@ router.get('/', async(req,res)=>{
  } catch (err) {
     res.status(404).send({msg:'Pokemon not found'})
 }
+
+// Borrar pokemon por id
+router.delete('/:id', async (req, res, next) => {
+    try {
+        const {id} = req.params;
+        const pokemon = await Pokemon.findByPk(id);
+        await pokemon.destroy();
+        res.status(200).send({msg: 'Pokemon deleted'})
+    } catch (error) {
+        next(error)
+    }
+})
+
+//Modificar pokemon por id
+router.put('/:id', async (req, res, next) => {
+    try {
+        const {id} = req.params;
+        // const {name, life, attack, defense, speed, height, weight, img, type} = req.body;
+        const pokeUpdate = await Pokemon.findByPk(id);
+        await pokeUpdate.update({
+            name,
+            life,
+            attack,
+            defense,
+            speed,
+            height,
+            weight,
+            img,
+        });
+        await pokeUpdate.setTypes(type);
+        res.status(200).send({msg: 'Pokemon updated'})
+    } catch (error) {
+        next(error)
+    }
+})
     
     
 });

@@ -130,3 +130,35 @@ export function dbOrApi(payload) {
     }
   };
 }
+
+// Borrar un pokemon de la DB
+export function deleteById(id) {
+  return async (dispatch) => {
+    try {
+      var json = await axios.delete(`/pokemons/${id}`);
+      //console.log("Desde Actions", json.data);
+      return dispatch({
+        type: "DELETE_BY_ID",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+// Modificar un pokemon de la DB
+export function putById(id) {
+  return async (dispatch) => {
+    try {
+      var json = await axios.put(`/pokemons/${id}`);
+      //console.log("Desde Actions", json.data);
+      return dispatch({
+        type: "PUT_BY_ID",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}

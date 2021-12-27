@@ -140,7 +140,19 @@ function rootReducer (state=initialState, action) {
                 return {
                      ...state,
                      pokemons: action.payload
-            } 
+            }; 
+
+          
+          case "DELETE_BY_ID":
+              return {
+                  ...state,
+                  pokeDelete: action.payload
+          };
+          case "PUT_BY_ID":
+              return {
+                  ...state,
+                  pokePut: action.payload
+          };
 
         default:
             return state
