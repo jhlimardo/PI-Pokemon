@@ -30,7 +30,7 @@ const data = async () => {
 
             }
         });
-        //console.log("PRUEBO QUE EL RESULTADO SEA EL ESPERADO", resultado);
+       // console.log("PRUEBO QUE EL RESULTADO SEA EL ESPERADO", resultado);
     return resultado;
 }
 
