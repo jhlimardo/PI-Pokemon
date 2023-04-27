@@ -41,7 +41,7 @@ export default function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log(pokemon);
+    //console.log(pokemon);
     if (
       pokemon.name === "" ||
       pokemon.type === [] ||
@@ -94,7 +94,7 @@ export default function Form() {
 
   useEffect(() => {
     if (error) {
-      alert("TODOS LOS CAMPOS SON OBLIGATORIOS");
+      alert("LOS CAMPOS SON OBLIGATORIOS");
       setTimeout(() => {
         setError(false);
       }, 3000);
